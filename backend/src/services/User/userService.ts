@@ -1,7 +1,7 @@
 import User, { IUserDocument } from '../../db/models/User/userModel';
 import { IUser } from '../../db/models/User/userModel';
 import { ObjectId } from 'mongodb';
-import jwt from 'jsonwebtoken'
+import jwt, { VerifyErrors } from 'jsonwebtoken'
 
 class UserService {
 
@@ -23,6 +23,14 @@ class UserService {
       return 400;
     }
     return 200
+  }
+
+  getIdFromToken(token: string): string {
+    let id = '';
+    jwt.verify(token as string, process.env.ACCESS_TOKEN_SECRET as string, (error: VerifyErrors | null, userId: any) => {
+      id = userId._id.toString()
+    })
+    return id
   }
 
 

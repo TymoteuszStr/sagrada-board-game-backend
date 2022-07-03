@@ -10,7 +10,7 @@ require('./db/mongoose')
 app.use(express.json());
 app.use(require('./routes/userApi.ts'));
 app.use(require('./middlewares/isUserAuthenticated.ts'))
-
+app.use(require('./routes/roomApi.ts'))
 
 
 
