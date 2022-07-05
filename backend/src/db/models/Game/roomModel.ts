@@ -34,13 +34,17 @@ const RoomSchema = new Schema({
   },
   players: {
     type: [{
-      type: String
+      type: String,
     }],
+    validate: [playersArrayLimit, '{PATH} exceeds the limit of 4'],
     required: false
   }
 
 }, { versionKey: false });
 
+function playersArrayLimit(val: number[]) {
+  return val.length <= 4;
+}
 
 
 

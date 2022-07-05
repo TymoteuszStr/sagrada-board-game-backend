@@ -13,6 +13,15 @@ class RoomController {
     res.status(statusCode).send(roomId)
   }
 
+  async addPlayerToRoom(req: Request, res: Response): Promise<void> {
+    const { roomId, playerId } = req.body
+    const { authorization } = req.headers;
+    const token = authorization && (authorization as string).split(' ')[1]
+    const adminId = userService.getIdFromToken(token?.toString() || '')
+    const { statusCode } = await roomService.addPlayerToRoom(roomId, playerId, adminId)
+    res.sendStatus(statusCode)
+  }
+
 
 
 
