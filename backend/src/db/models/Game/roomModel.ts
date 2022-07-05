@@ -2,17 +2,18 @@ import { Schema, model, Document } from 'mongoose';
 
 export interface IRoom {
   name: string,
+  adminId: string,
   players: string[]
 }
 export interface IRoomDocument extends IRoom, Document {
 
 }
 
-const playersSchema = new Schema({
-  tags: [{
-    type: String
-  }]
-})
+// const playersSchema = new Schema({
+//   type: [{
+//     type: String
+//   }]
+// })
 
 const RoomSchema = new Schema({
   _id: {
@@ -25,17 +26,18 @@ const RoomSchema = new Schema({
     minLength: 2,
     maxLength: 60,
     trim: true,
-    unique: true,
+    unique: false,
   },
   adminId: {
     type: String,
     required: true,
   },
-  players: [{
-    type: String
-  }]
-
-
+  players: {
+    type: [{
+      type: String
+    }],
+    required: false
+  }
 
 }, { versionKey: false });
 

@@ -10,7 +10,7 @@ class RoomController {
     const token = authorization && (authorization as string).split(' ')[1]
     const userId = userService.getIdFromToken(token?.toString() || '')
     const { statusCode, roomId } = await roomService.addRoom(name, userId)
-    res.sendStatus(statusCode).send(roomId)
+    res.status(statusCode).send(roomId)
   }
 
 
