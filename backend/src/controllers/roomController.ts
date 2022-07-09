@@ -1,5 +1,5 @@
 import { Request, Response, Router } from 'express';
-import roomService from '../services/Game/roomService';
+import roomService from '../services/Game/RoomService';
 import userService from '../services/User/userService';
 
 class RoomController {

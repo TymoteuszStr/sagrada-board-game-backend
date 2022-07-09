@@ -1,13 +1,13 @@
 export default class Room {
 
-  constructor(name: string, playerId: string) {
+  constructor(name: string, playerId: string, adminId: string) {
     this.players.push(playerId)
     this.name = name
+    this.adminId = adminId
   }
   name: string
   players: string[] = []
-
-
+  adminId: string;
 
 
   addPlayer(playerId: string): boolean {
