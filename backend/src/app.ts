@@ -1,8 +1,13 @@
 let express = require('express')
 let cors = require('cors')
-
 const app = express();
 app.use(cors());
+
+//websocket 
+const http = require('http');
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+export const io = new Server(server);
 
 require('./db/mongoose')
 
