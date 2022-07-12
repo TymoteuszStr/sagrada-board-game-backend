@@ -1,5 +1,5 @@
 import PatternCard from "./patternCard"
-import { IndividualTargetEnum } from '../helpers/individualTargetEnum';
+import { ColorEnum } from '../helpers/ColorEnum';
 
 
 export default class Player {
@@ -11,7 +11,7 @@ export default class Player {
   readonly id: string
   readonly name: string
   private _patternCard: PatternCard | undefined
-  private _individualTarget: IndividualTargetEnum | undefined
+  private _individualTarget: ColorEnum | undefined
   private _usedFavorTokens: number = 0
   points: number = 0
 
@@ -20,10 +20,10 @@ export default class Player {
   }
 
 
-  get individualTarget(): IndividualTargetEnum | undefined {
+  get individualTarget(): ColorEnum | undefined {
     return this._individualTarget
   }
-  set individualTarget(arg: IndividualTargetEnum | undefined) {
+  set individualTarget(arg: ColorEnum | undefined) {
     this._individualTarget = arg
   }
 

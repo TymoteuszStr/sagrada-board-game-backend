@@ -1,9 +1,8 @@
 
-export enum IndividualTargetEnum {
+export enum ColorEnum {
   blue,
   red,
   green,
   yellow,
   purple,
-
 }

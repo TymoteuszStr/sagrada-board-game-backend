@@ -5,12 +5,12 @@ export default class Room {
     this.name = name
     this.adminId = adminId
   }
-  name: string
-  players: string[] = []
+  readonly name: string
   adminId: string;
+  players: string[] = []
 
 
-  addPlayer(playerId: string): boolean {
+  addPlassyer(playerId: string): boolean {
     if (this.players.length >= 4) return false
 
     this.players.push(playerId)
