@@ -1,4 +1,5 @@
 import { ColorEnum } from '../helpers/ColorEnum';
+import randomNr from '../helpers/randomNr';
 
 export default class Dice {
 
@@ -23,7 +24,7 @@ export default class Dice {
   }
 
   throw(): number {
-    this._score = Math.floor(Math.random() * (6 - 1)) + 1;
+    this._score = randomNr(1, 6);
     return this._score
   }
 
