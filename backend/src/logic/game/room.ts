@@ -1,4 +1,5 @@
 import Player from './player';
+import { MAX_PLAYERS_NR } from '../assets/constants';
 export default class Room {
 
   constructor(name: string, player: Player, adminId: string) {
@@ -12,7 +13,7 @@ export default class Room {
 
 
   addPlayer(player: Player): boolean {
-    if (this.players.length >= 4) return false
+    if (this.players.length >= MAX_PLAYERS_NR) return false
 
     this.players.push(player)
     return true

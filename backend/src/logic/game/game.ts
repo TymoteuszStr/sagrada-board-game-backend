@@ -1,7 +1,7 @@
 import Room from "./room";
 import Dice from './dice';
 import { setupDices } from "../helpers/dices";
-import { ROUND_MAX_NR } from "../assets/constants";
+import { ROUNDS_NR } from "../assets/constants";
 import PublicTargetCard from './publicTargetCard';
 import { drawPublicTargetCards } from '../helpers/drawPublicTargetCards';
 

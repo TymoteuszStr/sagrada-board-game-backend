@@ -1,4 +1,5 @@
 import { Schema, model, Document } from 'mongoose';
+import { MAX_PLAYERS_NR } from '../../../logic/assets/constants';
 
 export interface IRoom {
   name: string,
@@ -43,7 +44,7 @@ const RoomSchema = new Schema({
 }, { versionKey: false });
 
 function playersArrayLimit(val: number[]) {
-  return val.length <= 4;
+  return val.length <= MAX_PLAYERS_NR;
 }
 
 

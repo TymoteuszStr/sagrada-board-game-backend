@@ -1,5 +1,6 @@
 import { ColorEnum } from '../helpers/colorEnum';
 import randomNr from '../helpers/randomNr';
+import { DICE_SCORE_MIN, DICE_SCORE_MAX } from '../assets/constants';
 
 export default class Dice {
 
@@ -24,7 +25,7 @@ export default class Dice {
   }
 
   throw(): number {
-    this._score = randomNr(1, 6);
+    this._score = randomNr(DICE_SCORE_MIN, DICE_SCORE_MAX);
     return this._score
   }
 
