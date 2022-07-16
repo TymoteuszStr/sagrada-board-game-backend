@@ -1,0 +1,1 @@
+export const ROUND_MAX_NR = 9

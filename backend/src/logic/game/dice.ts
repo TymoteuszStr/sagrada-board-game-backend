@@ -1,4 +1,4 @@
-import { ColorEnum } from '../helpers/ColorEnum';
+import { ColorEnum } from '../helpers/colorEnum';
 import randomNr from '../helpers/randomNr';
 
 export default class Dice {

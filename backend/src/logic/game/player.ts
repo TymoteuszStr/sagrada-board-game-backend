@@ -1,5 +1,5 @@
 import PatternCard from "./patternCard"
-import { ColorEnum } from '../helpers/ColorEnum';
+import { ColorEnum } from '../helpers/colorEnum';
 
 
 export default class Player {

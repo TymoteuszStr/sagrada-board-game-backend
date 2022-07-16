@@ -1,5 +1,5 @@
 import Dice from '../game/dice';
-import { ColorEnum } from './ColorEnum';
+import { ColorEnum } from './colorEnum';
 import randomNr from './randomNr';
 
 export function setupDices(playersNr: number): Dice[] {
