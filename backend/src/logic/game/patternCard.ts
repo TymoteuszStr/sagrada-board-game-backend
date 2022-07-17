@@ -1,13 +1,17 @@
+import { PatternCardEnum } from '../helpers/patternCards';
+import { IPattern, PatternType } from '../helpers/IPattern';
 
 export default class PatternCard {
-  constructor(id: string, favorTokens: number, form: any) {
-    this.id = id
+  constructor(key: PatternCardEnum, name: string, favorTokens: number, pattern: PatternType) {
+    this.key = key
+    this.name = name
     this.favorTokens = favorTokens
-    this.form = form
+    this.pattern = pattern
   }
 
-  id: string
+  key: PatternCardEnum
+  name: string
   favorTokens: number
-  form: any
+  pattern: PatternType
 
 }
