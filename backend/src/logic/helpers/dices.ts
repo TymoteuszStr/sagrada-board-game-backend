@@ -28,7 +28,7 @@ export function setupDices(playersNr: number): Dice[] {
   return dices
 }
 
-export function pullAndRollDices(dieces: Dice[], playersNr: number): Dice[] {
+export function pullDices(dieces: Dice[], playersNr: number): Dice[] {
   let randomDices: Dice[] = []
   let numberOfDices: number = 0
   switch (playersNr) {
