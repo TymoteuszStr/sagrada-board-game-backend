@@ -16,6 +16,8 @@ export function setPlayersOrder(players: Player[]): string[] {
 export function setNextOrder(order: string[]): string[] {
   const playersNr = order.length / 2
   const currentOrder = order.slice(0, playersNr)
+  const el = currentOrder.shift()
+  currentOrder.push(el as string)
   const nextOrder: string[] = []
 
   for (let i = 0;i < currentOrder.length;i++) {
