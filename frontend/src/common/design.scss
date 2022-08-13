@@ -1,0 +1,10 @@
+
+$bg-color: #1B202C;
+
+
+
+@mixin flex-center {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}

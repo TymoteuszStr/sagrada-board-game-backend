@@ -3,24 +3,47 @@
 </template>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+@import "@/common/design.scss";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  margin: 0;
+  padding: 0;
+  touch-action: pan-x pan-y;
+}
+body {
+  overscroll-behavior: contain;
+  background-color: $bg-color;
+  touch-action: pan-x pan-y;
 }
 
-#nav {
-  padding: 30px;
+@media screen and (min-width: 767px) {
+  /* width */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0);
+  }
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  /* Handle */
+  ::-webkit-scrollbar-thumb,
+  ::-webkit-scrollbar-thumb:horizontal {
+    background: #707070;
+    border-radius: 3px;
+    border: 2px solid transparent;
+    background-clip: padding-box; // <== make the border work
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    border: 0;
   }
 }
 </style>
