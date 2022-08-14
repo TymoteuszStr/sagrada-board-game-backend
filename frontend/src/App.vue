@@ -17,6 +17,7 @@
   padding: 0;
   touch-action: pan-x pan-y;
   font-family: "Aladin", cursive;
+  font-weight: 400;
 }
 body {
   overscroll-behavior: contain;

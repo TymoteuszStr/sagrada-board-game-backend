@@ -8,3 +8,27 @@ $bg-color: #1B202C;
    align-items: center;
    justify-content: center;
 }
+
+@mixin gradient-text {
+   background: linear-gradient(
+      -90deg,
+      rgba(231, 112, 112, 1),
+      rgba(220, 182, 102, 1),
+      rgba(91, 192, 113, 0.9),
+      rgba(107, 159, 208, 1)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  
+}
+@mixin gradient-text-vue {
+   background: linear-gradient(176.1deg, rgba(106, 163, 215, 0.8) -20.55%, rgba(91, 192, 113, 0.72) 146.54%);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   background-clip: text;
+   text-fill-color: transparent;
+   
+   
+}
