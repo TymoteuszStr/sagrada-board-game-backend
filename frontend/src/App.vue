@@ -3,6 +3,8 @@
 </template>
 
 <style lang="scss">
+/* @import url("https://fonts.googleapis.com/css2?family=Aladin&family=Mukta:wght@300;400;500&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Aladin&display=swap");
 @import "@/common/design.scss";
 
 *,
@@ -14,6 +16,7 @@
   margin: 0;
   padding: 0;
   touch-action: pan-x pan-y;
+  font-family: "Aladin", cursive;
 }
 body {
   overscroll-behavior: contain;
