@@ -6,7 +6,7 @@ import Plus from "../Shared/Plus.vue";
 <template>
   <div class="container">
     <p>CREATE NEW GAME ROOM</p>
-    <MainButton> <Plus /></MainButton>
+    <MainButton @click="$router.push(`/new-room`)"> <Plus /></MainButton>
     <p>invite your folks and start the GAME!</p>
   </div>
 </template>

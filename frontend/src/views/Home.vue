@@ -1,4 +1,4 @@
-<template setup>
+<template>
   <div class="home-wrapper">
     <LogoHeader />
     <CreateRoom />
