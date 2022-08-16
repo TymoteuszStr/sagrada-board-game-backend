@@ -6,16 +6,10 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script lang="ts" setup>
 import LogoHeader from "@/components/LogoHeader/LogoHeader.vue";
-import CreateRoom from "@/components/CreateRoom/CreateRoom.vue";
 import ListOfRooms from "@/components/ListOfRooms/ListOfRooms.vue";
-
-export default defineComponent({
-  name: "Home",
-  components: { LogoHeader, CreateRoom, ListOfRooms },
-});
+import CreateRoom from "@/components/CreateRoom/CreateRoom.vue";
 </script>
 
 <style lang="scss" scoped>

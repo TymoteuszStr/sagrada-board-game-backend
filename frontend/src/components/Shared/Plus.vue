@@ -3,6 +3,7 @@
     <div></div>
   </div>
 </template>
+
 <style lang="scss" scoped>
 @import "@/common/design.scss";
 

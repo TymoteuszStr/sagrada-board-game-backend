@@ -1,4 +1,4 @@
-<template setup>
+<template>
   <div class="wrapper">
     <h2>Join the game!</h2>
     <div class="rooms-container">
@@ -6,15 +6,6 @@
     </div>
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  name: "",
-  components: {},
-});
-</script>
 
 <style lang="scss" scoped>
 @import "@/common/design.scss";

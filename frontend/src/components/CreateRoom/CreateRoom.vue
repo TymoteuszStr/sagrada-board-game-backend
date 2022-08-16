@@ -1,21 +1,15 @@
-<template setup>
+<script lang="ts" setup>
+import MainButton from "../Shared/MainButton.vue";
+import Plus from "../Shared/Plus.vue";
+</script>
+
+<template>
   <div class="container">
     <p>CREATE NEW GAME ROOM</p>
     <MainButton> <Plus /></MainButton>
     <p>invite your folks and start the GAME!</p>
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent } from "vue";
-import MainButton from "../Shared/MainButton.vue";
-import Plus from "../Shared/Plus.vue";
-
-export default defineComponent({
-  name: "CreateRoom",
-  components: { MainButton, Plus },
-});
-</script>
 
 <style lang="scss" scoped>
 @import "@/common/design.scss";

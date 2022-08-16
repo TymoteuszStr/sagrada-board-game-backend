@@ -6,15 +6,6 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  name: "LogoHeader",
-  components: {},
-});
-</script>
-
 <style lang="scss" scoped>
 @import "@/common/design.scss";
 .container {
