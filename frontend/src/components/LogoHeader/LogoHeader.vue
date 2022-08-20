@@ -8,10 +8,12 @@
 
 <style lang="scss" scoped>
 @import "@/common/design.scss";
+
 .container {
   @include flex-center;
   max-width: inherit;
-  width: 400px;
+  width: 100%;
+
   h1 {
     @include gradient-text;
     display: flex;
@@ -21,16 +23,16 @@
     letter-spacing: 3px;
     font-weight: 400;
   }
+
   .line {
     width: 100%;
     height: 1px;
     flex-grow: 1;
-    background: linear-gradient(
-      90deg,
-      rgba(3, 4, 5, 0.03),
-      rgba(152, 102, 170, 1),
-      rgba(107, 159, 208, 0.65)
-    );
+    background: linear-gradient(90deg,
+        rgba(3, 4, 5, 0.03),
+        rgba(152, 102, 170, 1),
+        rgba(107, 159, 208, 0.65));
+
     &:last-child {
       transform: scaleX(-1);
     }

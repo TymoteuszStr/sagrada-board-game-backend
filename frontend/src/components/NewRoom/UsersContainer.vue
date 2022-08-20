@@ -2,7 +2,7 @@
 import UserMiniature from "./UserMiniature.vue";
 </script>
 <template>
-  <div class="users-wrapper">
+  <div class="users-container">
     <UserMiniature />
     <UserMiniature />
     <UserMiniature />
@@ -12,10 +12,18 @@ import UserMiniature from "./UserMiniature.vue";
 </template>
 <style lang="scss" scoped>
 @import "@/common/design.scss";
-.users-wrapper {
+
+.users-container {
   @include flex-center;
+  justify-content: space-around;
   margin-top: 30px;
+  width: 100%;
+  max-width: 300px;
+  min-width: 280px;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 p {
   @include flex-center;
   margin: 20px;

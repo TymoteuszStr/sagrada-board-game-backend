@@ -1,16 +1,19 @@
 <script lang="ts" setup>
 import LogoHeader from "@/components/LogoHeader/LogoHeader.vue";
 import UsersContainer from "../components/NewRoom/UsersContainer.vue";
+import BoardsContainer from "@/components/NewRoom/BoardsContainer.vue";
 </script>
 
 <template>
-  <LogoHeader />;
+  <LogoHeader />
   <h2>The game is about to start!</h2>
   <UsersContainer />
+  <BoardsContainer />
 </template>
 
 <style lang="scss" scoped>
 @import "@/common/design.scss";
+
 h2 {
   @include gradient-text-vue;
   @include flex-center;

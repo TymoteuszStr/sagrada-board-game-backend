@@ -1,7 +1,10 @@
 
 $bg-color: #1B202C;
 $grey-color: rgba(217, 217, 217, 0.3);
-
+$board-color-0: linear-gradient(176.1deg, #DCB666 -20.55%, #E77070 146.54%);
+$board-color-1: linear-gradient(176.1deg, #6AA3D7 -20.55%, rgba(91, 192, 113, 0.9) 146.54%);
+$board-color-2: linear-gradient(180.35deg, rgba(91, 192, 113, 0.9) -28.19%, #DCB666 131.2%);
+$board-color-3: linear-gradient(176.1deg, #A27DAE -20.55%, rgba(107, 159, 208, 0.9) 146.54%);
 
 @mixin flex-center {
    display: flex;

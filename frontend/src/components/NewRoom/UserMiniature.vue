@@ -26,9 +26,18 @@ const props = withDefaults(defineProps<Props>(), {
    background-color: $grey-color;
    width: 65px;
    height: 65px;
-   margin: 10px;
    border-radius: 50%;
-   /* border-top-left-radius: 100%; */
-   /* border-top-right-radius: 100%; */
+
+   &:hover {
+      @extend .active;
+      cursor: pointer;
+   }
+
+}
+
+.active {
+   filter: brightness(1.55);
+   transform: scale(1.05);
+
 }
 </style>
