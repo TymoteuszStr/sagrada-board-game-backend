@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import UserMiniature from "./UserMiniature.vue";
+import PlayerMiniature from "./PlayerMiniature.vue";
 </script>
 <template>
   <div class="users-container">
-    <UserMiniature />
-    <UserMiniature />
-    <UserMiniature />
-    <UserMiniature />
+    <PlayerMiniature />
+    <PlayerMiniature />
+    <PlayerMiniature />
+    <PlayerMiniature />
   </div>
   <p>invite your folks</p>
 </template>

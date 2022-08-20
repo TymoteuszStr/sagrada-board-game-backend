@@ -1,11 +1,13 @@
 <script lang="ts" setup>
-const { nr } = defineProps<{ nr: number }>();
+import { toRefs } from 'vue';
+
+const props = defineProps<{ nr: number }>();
+
+const { nr } = toRefs(props)
 </script>
 
 <template>
-   <div class="board-container" :class="`bg-color-${nr}`">
-
-   </div>
+   <div class="board-container" :class="`bg-color-${nr}`"></div>
 </template>
 
 <style lang="scss" scoped>
@@ -21,13 +23,11 @@ const { nr } = defineProps<{ nr: number }>();
       @extend .active;
       cursor: pointer;
    }
-
 }
 
 .active {
-   filter: brightness(1.0);
+   filter: brightness(1);
    transform: scale(1.05);
-
 }
 
 .bg-color-0 {
