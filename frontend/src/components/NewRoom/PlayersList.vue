@@ -6,6 +6,10 @@ const users = [
    { name: "Tymek", id: 0 },
    { name: "Basia", id: 1 },
    { name: "Olio", id: 2 },
+   { name: "Olio", id: 3 },
+   { name: "Olio", id: 4 },
+   { name: "Olio", id: 5 },
+   { name: "Olio", id: 6 },
 ];
 </script>
 
@@ -30,6 +34,8 @@ const users = [
    border-color: rgba(255, 255, 255, .2);
    max-width: 400px;
    min-width: 200px;
+   max-height: 170px;
+   overflow-y: auto;
 
    legend {
       color: rgba(255, 255, 255, .8)

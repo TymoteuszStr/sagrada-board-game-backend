@@ -2,7 +2,7 @@
 import PlayerMiniature from "./PlayerMiniature.vue";
 </script>
 <template>
-  <div class="users-container">
+  <div class="players-container">
     <PlayerMiniature />
     <PlayerMiniature />
     <PlayerMiniature />
@@ -13,7 +13,7 @@ import PlayerMiniature from "./PlayerMiniature.vue";
 <style lang="scss" scoped>
 @import "@/common/design.scss";
 
-.users-container {
+.players-container {
   @include flex-center;
   justify-content: space-around;
   margin-top: 30px;
