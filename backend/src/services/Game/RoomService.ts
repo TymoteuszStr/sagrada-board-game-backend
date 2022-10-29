@@ -1,5 +1,6 @@
 import { ObjectId } from 'mongodb';
-import GameRoom, { IRoom } from '../../db/models/Game/roomModel';
+import GameRoom from '../../db/models/Game/roomModel';
+import { IRoomDocument } from '../../db/models/Game/roomModel';
 
 class RoomService {
 
@@ -26,6 +27,16 @@ class RoomService {
     return { statusCode: 200 }
   }
 
+  async getAllRooms(): Promise<any> {
+    try {
+      const rooms = await GameRoom.find()
+      console.log(rooms)
+      return { rooms }
+    } catch (error: any) {
+      console.log("Cannot add user to room: ", error)
+      return { rooms: [] }
+    }
+  }
 }
 
 export default new RoomService();
