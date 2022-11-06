@@ -9,7 +9,7 @@ class UserService {
     const user: IUserDocument | null = await User.findOne({ name: login })
 
     if (user && user.checkPassword(password))
-      return { token: jwt.sign({ _id: user._id.toString() }, process.env.ACCESS_TOKEN_SECRET as string, { expiresIn: '6h' }), userId: user._id.toString(), name: user.name.toString() }
+      return { token: jwt.sign({ _id: user._id.toString() }, process.env.ACCESS_TOKEN_SECRET as string, { expiresIn: '8h' }), userId: user._id.toString(), name: user.name.toString() }
     else return { token: '', userId: '', name: '' }
   }
 
@@ -25,12 +25,21 @@ class UserService {
     return 200
   }
 
-  getIdFromToken(token: string): string {
+  getIdFromToken(token: string): string{
     let id = '';
-    jwt.verify(token as string, process.env.ACCESS_TOKEN_SECRET as string, (error: VerifyErrors | null, userId: any) => {
-      id = userId._id.toString()
-    })
-    return id
+    try{
+      jwt.verify(token as string, process.env.ACCESS_TOKEN_SECRET as string, (error: VerifyErrors | null, userId: any) => {
+        id = userId._id.toString()
+      })
+      return id
+    }catch(err){
+      return ''
+    }
+  }
+  async getUserFromId(id: string): Promise<{ id: any; name: string; } | null> {
+    const _id = new ObjectId(id)
+    const user = await User.findOne({ _id })
+    return user ? { id: user._id, name: user.name } : null
   }
 
 

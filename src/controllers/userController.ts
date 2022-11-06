@@ -15,6 +15,16 @@ class UserController {
     const statusCode = await UserService.addUser({ name: login, password })
     res.sendStatus(statusCode)
   }
+  async getUserFromToken(req: Request, res: Response): Promise<void> {
+    const { token } = req.body;
+    const id = UserService.getIdFromToken(token)
+    if (!id) {
+      res.send(null)
+      return
+    }
+    const user = await UserService.getUserFromId(id)
+    res.send(user)
+  }
 
 }
 
