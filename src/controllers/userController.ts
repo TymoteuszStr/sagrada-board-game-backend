@@ -17,7 +17,7 @@ class UserController {
   }
   async getUserFromToken(req: Request, res: Response): Promise<void> {
     const { token } = req.body;
-    const id = UserService.getIdFromToken(token)
+    const id = UserService.getUserIdFromToken(token)
     if (!id) {
       res.send(null)
       return

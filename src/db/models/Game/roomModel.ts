@@ -1,4 +1,4 @@
-import { Schema, model, Document } from 'mongoose';
+import { Schema, model, Document, ObjectId } from 'mongoose';
 import { MAX_PLAYERS_NR } from '../../../logic/assets/constants';
 
 export interface IRoom {
@@ -7,7 +7,6 @@ export interface IRoom {
   players: string[]
 }
 export interface IRoomDocument extends IRoom, Document {
-
 }
 
 // const playersSchema = new Schema({

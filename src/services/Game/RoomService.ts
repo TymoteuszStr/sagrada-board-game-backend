@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import GameRoom, { IRoom } from '../../db/models/Game/roomModel';
+import GameRoom, { IRoom, IRoomDocument } from '../../db/models/Game/roomModel';
 
 class RoomService {
 
@@ -15,6 +15,14 @@ class RoomService {
     return { statusCode: 200, roomId: _id.toString() }
   }
 
+  async getAllRooms(): Promise<IRoomDocument[]>{
+    try {
+      const rooms = await GameRoom.find()
+      return rooms
+    } catch (error:any) {
+      return []
+    }
+  }
   async addPlayerToRoom(roomId: string, userId: string, adminId: string): Promise<{ statusCode: number }> {
     try {
       const room = await GameRoom.findOne({ _id: new ObjectId(roomId), adminId })

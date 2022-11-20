@@ -25,7 +25,12 @@ class UserService {
     return 200
   }
 
-  getIdFromToken(token: string): string{
+  getIdFromAuthorizationHeader(authorization:string | undefined):string{
+    const token = authorization && (authorization as string).split(' ')[1]
+    return this.getUserIdFromToken(token?.toString() || '')
+  }
+
+  getUserIdFromToken(token: string): string{
     let id = '';
     try{
       jwt.verify(token as string, process.env.ACCESS_TOKEN_SECRET as string, (error: VerifyErrors | null, userId: any) => {

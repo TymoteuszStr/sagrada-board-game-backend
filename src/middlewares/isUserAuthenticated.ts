@@ -7,7 +7,6 @@ module.exports = function (req: any, res: Response, next: NextFunction) {
   if (!token) return res.sendStatus(401)
   try{
     jwt.verify(token as string, process.env.ACCESS_TOKEN_SECRET as string, (error: VerifyErrors | null, userId: any) => {
-      console.log(userId)
       if (!userId) {
         console.log('Invalid token: ', error)
         return res.sendStatus(403)
