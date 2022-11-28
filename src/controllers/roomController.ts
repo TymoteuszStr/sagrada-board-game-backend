@@ -22,7 +22,6 @@ class RoomController {
 
   async getRooms(_: Request, res: Response): Promise<void> {
     const rooms = await roomService.getAllRooms()
-    console.log('rooms',rooms)
     res.status(200).send(rooms)
   }
 
