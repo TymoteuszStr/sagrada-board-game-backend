@@ -12,19 +12,10 @@ class RoomController {
     res.status(statusCode).send(roomId)
   }
 
-  async addPlayerToRoom(req: Request, res: Response): Promise<void> {
-    const { roomId, playerId } = req.body
-    const { authorization } = req.headers;
-    const adminId = userService.getIdFromAuthorizationHeader(authorization)
-    const { statusCode } = await roomService.addPlayerToRoom(roomId, playerId, adminId)
-    res.sendStatus(statusCode)
-  }
-
   async getRooms(_: Request, res: Response): Promise<void> {
     const rooms = await roomService.getAllRooms()
     res.status(200).send(rooms)
   }
-
 
 }
 

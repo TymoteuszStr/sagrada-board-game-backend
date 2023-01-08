@@ -7,7 +7,7 @@ class RoomService {
   async addRoom(name: string, userId: string): Promise<{ statusCode: number, roomId: string | null }> {
     const _id = new ObjectId()
     try {
-      await new GameRoom({ _id, name, adminId: userId, players: [userId] }).save()
+      await new GameRoom({ _id, name, adminId: userId, players: [] }).save()
     } catch (error: any) {
       console.log("Cannot add new room: ", error)
       if (error.code === 11000) return { statusCode: 400, roomId: null }
@@ -24,17 +24,7 @@ class RoomService {
       return []
     }
   }
-  async addPlayerToRoom(roomId: string, userId: string, adminId: string): Promise<{ statusCode: number }> {
-    try {
-      const room = await GameRoom.findOne({ _id: new ObjectId(roomId), adminId })
-      await room?.updateOne({ $set: { players: [...room.players, userId] } }, { runValidators: true })
-    } catch (error: any) {
-      console.log("Cannot add user to room: ", error)
-      return { statusCode: 400 }
-    }
-    return { statusCode: 200 }
-  }
-
+  
   async getUsersInRoom(roomId: string): Promise<string[]> {
     try {
       const room = await GameRoom.findOne({ _id: new ObjectId(roomId) }) 
@@ -45,7 +35,29 @@ class RoomService {
     }
   }
 
-  
+  async addPlayerToRoom(roomId: string, userId: string): Promise<boolean> {
+    try {
+      const room = await GameRoom.findOne({ _id: new ObjectId(roomId) })
+      if(room?.players.includes(userId)) return true
+      await room?.updateOne({ $set: { players: [...room.players, userId] } }, { runValidators: true })
+      return true
+    } catch (error: any) {
+      console.log("Cannot add user to room: ", error)
+      return false
+    }
+  }
+  async removePlayerFromRoom(roomId: string, userId: string): Promise<boolean> {
+    try {
+      const room = await GameRoom.findOne({ _id: new ObjectId(roomId) })
+     const players= room?.players.filter((item)=> item !== userId)
+     console.log(players)
+      await room?.updateOne({ $set: { players} })
+      return true
+    } catch (error: any) {
+      console.log("Cannot add user to room: ", error)
+      return false
+    }
+  }
 
 }
 
