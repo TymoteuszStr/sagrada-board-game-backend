@@ -17,6 +17,25 @@ class RoomController {
     res.status(200).send(rooms)
   }
 
+  async userEnterRoom(roomId:string,userId:string,setPlayerList:any):Promise<any[]>{
+    await roomService.addPlayerToRoom(roomId,userId)
+    const listOfUsers = await roomService.getUsersInRoom(roomId)
+    const listOfUsersWithNames: ({ id: any; name: string; } | null)[] = []
+    for await(const id of listOfUsers) listOfUsersWithNames.push(await userService.getUserFromId(id));
+    if (typeof setPlayerList === 'function') setPlayerList(listOfUsersWithNames)
+
+    return listOfUsersWithNames
+  }
+  
+  async userLeaveRoom(roomId:string, userId:string):Promise<any[]>{
+    await roomService.removePlayerFromRoom(roomId,userId)
+    const listOfUsers = await roomService.getUsersInRoom(roomId)
+    const listOfUsersWithNames = []
+   for await(const id of listOfUsers) listOfUsersWithNames.push(await userService.getUserFromId(id));
+   
+   return listOfUsersWithNames
+  }
+
 }
 
 export default new RoomController()
