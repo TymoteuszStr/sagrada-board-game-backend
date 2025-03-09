@@ -14,7 +14,7 @@ import { ColorEnum } from "../helpers/colorEnum";
 import randomNr, { getFewUniqueRandomNumbers } from "../helpers/randomNr";
 
 export class BoardSetup {
-  private publicTargeCards: PublicTargetCard[];
+  publicTargeCards: PublicTargetCard[];
   dices: Dice[] = [];
   tools: unknown[] = [];
   private playersNumber;
@@ -29,11 +29,12 @@ export class BoardSetup {
   private setupPublicTargets(): void {
     const randomNumbers = getFewUniqueRandomNumbers(
       PUBLIC_TARGET_CARDS_NR,
-      0,
+      1,
       PublicTargetCards.size
     );
     randomNumbers.forEach((nr: number) => {
       const newCard = PublicTargetCards.get(nr);
+      console.log("newCard", newCard);
       if (newCard !== undefined) this.publicTargeCards.push(newCard);
       else throw new Error("Card cannond be undefined");
     });
@@ -88,5 +89,12 @@ export class BoardSetup {
     }
 
     return randomDices;
+  }
+
+  getCardSetup() {
+    return {
+      tools: this.tools,
+      publicTargeCards: this.publicTargeCards,
+    };
   }
 }

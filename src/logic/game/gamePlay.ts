@@ -8,7 +8,6 @@ import { roundNumberGenerator } from "../helpers/roundNumberGenerator";
 export class GamePlay {
   constructor(room: Room) {
     this._room = room;
-    this._playersNr = room.players.length;
     this.roundNumberGenerator = roundNumberGenerator();
     this._boardSetup = new BoardSetup(this._room.players.length);
     this._currentPlayer = this._room.players[0];
@@ -17,13 +16,12 @@ export class GamePlay {
   }
   private _room: Room;
   private _boardSetup: BoardSetup;
-  private _playersNr: number;
   private _currentPlayer: Player;
   private _dicesInRound: Dice[] = [];
   private roundNumberGenerator: Generator<number>;
+  private _playersOrder: string[];
   public playersOrder: string[] | undefined;
   public currentRoundNumber: IteratorResult<number, any> | undefined;
-  public _playersOrder: string[];
 
   pullAndRollDices() {
     if (this._boardSetup === undefined) return;
@@ -40,4 +38,7 @@ export class GamePlay {
     // Implementation details
     console.log("setupUsersColors");
   }
+
+  getPlayersOrder = () => this._playersOrder;
+  getCardSetup = () => this._boardSetup.getCardSetup();
 }

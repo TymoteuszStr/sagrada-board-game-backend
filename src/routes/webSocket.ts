@@ -18,7 +18,7 @@ io.on('connection',  (socket: MySocket) => {
        socket.in(roomId).emit(PLAYERS_LIST_IN_ROOM, listOfUsersWithNames)
       })
 
-    socket.on(USER_LEAVE_ROOM, async (roomId:string, userId:string) => {    
+    socket.on(`USER_LEAVE_ROOM`, async (roomId:string, userId:string) => {    
       const listOfUsersWithNames = await roomController.userLeaveRoom(roomId,userId)
       socket.in(roomId).emit(PLAYERS_LIST_IN_ROOM,listOfUsersWithNames)
       // socket.emit(PLAYERS_LIST_IN_ROOM,listOfUsersWithNames)
