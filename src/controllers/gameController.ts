@@ -11,10 +11,14 @@ class GameController {
     else {
       const gamePlay = GamePlayService.creatGamePlay(room);
       res.send({
-        playerOrder: gamePlay.getPlayersOrder(),
-        setup: gamePlay.getCardSetup(),
+        playerOrder: gamePlay.playersOrder,
+        setup: gamePlay.cardSetup,
       });
     }
+  }
+
+  getPatternCards(req: Request, res: Response): void {
+    res.send(GamePlayService.getPattenrsCard());
   }
 
   addNewPlayer() {}
